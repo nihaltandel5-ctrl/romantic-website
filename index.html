@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>For Someone Special ❤️</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(
+                135deg,
+                #ffe6f0,
+                #ffd1e3,
+                #fff0f6
+            );
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            overflow-x: hidden;
+
+            color: #5c1835;
+        }
+
+        /* MAIN CONTAINER */
+
+        .container {
+            width: 92%;
+            max-width: 430px;
+            min-height: 650px;
+
+            background: rgba(255, 255, 255, 0.78);
+
+            border-radius: 30px;
+
+            padding: 30px 22px;
+
+            text-align: center;
+
+            box-shadow:
+                0 15px 50px rgba(190, 60, 110, 0.25);
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        /* PAGES */
+
+        .page {
+            display: none;
+
+            animation: fadeIn 0.7s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        /* HEADINGS */
+
+        h1 {
+            font-size: 30px;
+            margin: 15px 0;
+            color: #d6336c;
+        }
+
+        h2 {
+            color: #c2255c;
+            margin: 15px 0;
+        }
+
+        h3 {
+            color: #9b214f;
+        }
+
+        p {
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        /* HEART */
+
+        .heart {
+            font-size: 75px;
+
+            margin: 20px;
+
+            animation: heartbeat 1.3s infinite;
+        }
+
+        @keyframes heartbeat {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.18);
+            }
+
+        }
+
+        /* BUTTON */
+
+        button {
+            border: none;
+
+            background: linear-gradient(
+                135deg,
+                #ff4f81,
+                #d6336c
+            );
+
+            color: white;
+
+            padding: 13px 28px;
+
+            border-radius: 30px;
+
+            font-size: 15px;
+
+            cursor: pointer;
+
+            margin-top: 20px;
+
+            box-shadow:
+                0 7px 20px rgba(214, 51, 108, 0.3);
+
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        /* QR SECTION */
+
+        .qr-heart {
+            width: 210px;
+            height: 210px;
+
+            margin: 25px auto;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            position: relative;
+        }
+
+        .qr-heart::before {
+            content: "♥";
+
+            position: absolute;
+
+            font-size: 210px;
+
+            line-height: 1;
+
+            color: #fff;
+
+            z-index: 0;
+
+            text-shadow:
+                0 5px 20px rgba(214, 51, 108, 0.12);
+        }
+
+        .qr {
+            width: 145px;
+            height: 145px;
+
+            background: white;
+
+            padding: 8px;
+
+            border-radius: 15px;
+
+            position: relative;
+
+            z-index: 2;
+
+            box-shadow:
+                0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .qr img {
+            width: 100%;
+            height: 100%;
+
+            display: block;
+        }
+
+        /* QUESTION */
+
+        .question-box {
+            background: rgba(255, 255, 255, 0.8);
+
+            padding: 20px;
+
+            border-radius: 20px;
+
+            margin-top: 25px;
+        }
+
+        .option {
+            display: block;
+
+            width: 100%;
+
+            background: #fff0f5;
+
+            color: #9b214f;
+
+            box-shadow: none;
+
+            margin: 10px 0;
+        }
+
+        .option:hover {
+            background: #ffd6e5;
+        }
+
+        /* PROGRESS */
+
+        .progress {
+            width: 100%;
+
+            height: 20px;
+
+            background: #f8c7d9;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            margin: 25px 0;
+        }
+
+        .progress-bar {
+            height: 100%;
+
+            width: 0%;
+
+            background: linear-gradient(
+                90deg,
+                #ff4f81,
+                #c2255c
+            );
+
+            border-radius: 20px;
+
+            transition: width 0.05s linear;
+        }
+
+        .percent {
+            font-size: 55px;
+
+            font-weight: bold;
+
+            color: #d6336c;
+        }
+
+        /* LETTER */
+
+        .letter {
+            text-align: left;
+
+            background: #fff7fa;
+
+            padding: 22px;
+
+            border-radius: 20px;
+
+            line-height: 1.8;
+
+            margin-top: 20px;
+
+            box-shadow:
+                inset 0 0 20px rgba(214, 51, 108, 0.08);
+        }
+
+        /* SMALL TEXT */
+
+        .small {
+            font-size: 13px;
+            opacity: 0.7;
+        }
+
+        /* FLOATING HEARTS */
+
+        .floating-heart {
+            position: fixed;
+
+            bottom: -30px;
+
+            font-size: 20px;
+
+            animation: floatUp 7s linear forwards;
+
+            opacity: 0.6;
+
+            pointer-events: none;
+
+            z-index: 999;
+        }
+
+        @keyframes floatUp {
+
+            from {
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 0.7;
+            }
+
+            to {
+                transform:
+                    translateY(-110vh)
+                    rotate(360deg);
+
+                opacity: 0;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <!-- ========================= -->
+    <!-- PAGE 1 -->
+    <!-- ========================= -->
+
+    <section class="page active" id="page1">
+
+        <div class="heart">
+            ❤️
+        </div>
+
+        <h1>
+            Hey, You... 💕
+        </h1>
+
+        <p>
+            I made something special for someone very special.
+        </p>
+
+        <br>
+
+        <p>
+            And yes... it's secretly all about you. 🥹❤️
+        </p>
+
+        <button onclick="showPage2()">
+            Open My Surprise 💌
+        </button>
+
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- PAGE 2 -->
+    <!-- ========================= -->
+
+    <section class="page" id="page2">
+
+        <h2>
+            A Little Something For You 💗
+        </h2>
+
+        <p>
+            Scan the heart and let the little journey begin...
+        </p>
+
+
+        <div class="qr-heart">
+
+            <div class="qr">
+
+                <!--
+                CHANGE example.com
+                TO YOUR WEBSITE URL
+                -->
+
+                <img
+                    src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fnihal.com"
+                    alt="QR Code">
+
+            </div>
+
+        </div>
+
+
+        <p class="small">
+            Scan me ❤️
+        </p>
+
+
+        <button onclick="showPage3()">
+            Continue 💕
+        </button>
+
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- PAGE 3 -->
+    <!-- ========================= -->
+
+    <section class="page" id="page3">
+
+        <div class="heart">
+            💗
+        </div>
+
+        <h2>
+            Let's Play A Little Game
+        </h2>
+
+        <p>
+            Answer honestly... okay? 👀
+        </p>
+
+
+        <div class="question-box">
+
+            <h3>
+                Do you know how special you are to me?
+            </h3>
+
+
+            <button
+                class="option"
+                onclick="showPage4()">
+
+                Yes ❤️
+
+            </button>
+
+
+            <button
+                class="option"
+                onclick="showPage4()">
+
+                Maybe... 🥺
+
+            </button>
+
+
+            <button
+                class="option"
+                onclick="showPage4()">
+
+                Tell me 💕
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- PAGE 4 -->
+    <!-- ========================= -->
+
+    <section class="page" id="page4">
+
+        <h2>
+            How Much Do You Mean To Me?
+        </h2>
+
+
+        <div
+            class="percent"
+            id="percent">
+
+            0%
+
+        </div>
+
+
+        <div class="progress">
+
+            <div
+                class="progress-bar"
+                id="progressBar">
+            </div>
+
+        </div>
+
+
+        <p id="percentageText">
+            Calculating...
+        </p>
+
+
+        <button onclick="showPage5()">
+            Show Me Your Letter 💌
+        </button>
+
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- PAGE 5 -->
+    <!-- ========================= -->
+
+    <section class="page" id="page5">
+
+        <div class="heart">
+            💌
+        </div>
+
+
+        <h2>
+            A Letter From My Heart
+        </h2>
+
+
+        <div class="letter">
+
+            <p>
+                Dear You,
+            </p>
+
+            <br>
+
+            <p>
+                Sometimes words aren't enough to explain
+                how much someone means to you.
+            </p>
+
+            <br>
+
+            <p>
+                But if I had to choose one person who makes
+                ordinary moments feel a little more beautiful,
+                it would be you. ❤️
+            </p>
+
+            <br>
+
+            <p>
+                Thank you for simply being you.
+            </p>
+
+            <br>
+
+            <p>
+                No matter where life takes us,
+                I hope you always remember that you are
+                incredibly special.
+            </p>
+
+            <br>
+
+            <p>
+                With lots of love,
+                <br>
+
+                <b>
+                    Someone who cares about you ❤️
+                </b>
+            </p>
+
+        </div>
+
+
+        <button onclick="showPage6()">
+            One Last Thing ❤️
+        </button>
+
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- PAGE 6 -->
+    <!-- ========================= -->
+
+    <section class="page" id="page6">
+
+        <div class="heart">
+            💖
+        </div>
+
+
+        <h1>
+            You're Special
+        </h1>
+
+
+        <p>
+            And this little website is just a tiny reminder
+            of that.
+        </p>
+
+        <br>
+
+
+        <p>
+            Keep smiling. 🌸
+        </p>
+
+
+        <p>
+            Keep shining. ✨
+        </p>
+
+
+        <p>
+            And never forget how loved you are. ❤️
+        </p>
+
+
+        <button onclick="restartWebsite()">
+            Start Again 💕
+        </button>
+
+    </section>
+
+
+</div>
+
+
+
+<script>
+
+
+/* ================================= */
+/* PAGE 2 */
+/* ================================= */
+
+function showPage2() {
+
+    document.getElementById("page1").classList.remove("active");
+
+    document.getElementById("page2").classList.add("active");
+
+}
+
+
+
+/* ================================= */
+/* PAGE 3 */
+/* ================================= */
+
+function showPage3() {
+
+    document.getElementById("page2").classList.remove("active");
+
+    document.getElementById("page3").classList.add("active");
+
+}
+
+
+
+/* ================================= */
+/* PAGE 4 */
+/* ================================= */
+
+function showPage4() {
+
+    document.getElementById("page3").classList.remove("active");
+
+    document.getElementById("page4").classList.add("active");
+
+    startPercentage();
+
+}
+
+
+
+/* ================================= */
+/* PAGE 5 */
+/* ================================= */
+
+function showPage5() {
+
+    document.getElementById("page4").classList.remove("active");
+
+    document.getElementById("page5").classList.add("active");
+
+}
+
+
+
+/* ================================= */
+/* PAGE 6 */
+/* ================================= */
+
+function showPage6() {
+
+    document.getElementById("page5").classList.remove("active");
+
+    document.getElementById("page6").classList.add("active");
+
+}
+
+
+
+/* ================================= */
+/* LOVE PERCENTAGE */
+/* ================================= */
+
+function startPercentage() {
+
+    var percent = 0;
+
+    var percentElement =
+        document.getElementById("percent");
+
+    var progressBar =
+        document.getElementById("progressBar");
+
+    var percentageText =
+        document.getElementById("percentageText");
+
+
+    percentElement.innerText = "0%";
+
+    progressBar.style.width = "0%";
+
+    percentageText.innerText =
+        "Calculating...";
+
+
+    var interval = setInterval(function () {
+
+        percent++;
+
+        percentElement.innerText =
+            percent + "%";
+
+        progressBar.style.width =
+            percent + "%";
+
+
+        if (percent >= 100) {
+
+            clearInterval(interval);
+
+            percentageText.innerText =
+                "Okay... it's officially 100% ❤️";
+
+        }
+
+    }, 25);
+
+}
+
+
+
+/* ================================= */
+/* FLOATING HEARTS */
+/* ================================= */
+
+function createHeart() {
+
+    var heart =
+        document.createElement("div");
+
+    heart.className =
+        "floating-heart";
+
+
+    var hearts = [
+        "❤️",
+        "💕",
+        "💗",
+        "💖",
+        "💓",
+        "💞"
+    ];
+
+
+    var randomNumber =
+        Math.floor(
+            Math.random() * hearts.length
+        );
+
+
+    heart.innerHTML =
+        hearts[randomNumber];
+
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+
+    heart.style.animationDuration =
+        (4 + Math.random() * 5) + "s";
+
+
+    heart.style.fontSize =
+        (15 + Math.random() * 20) + "px";
+
+
+    document.body.appendChild(heart);
+
+
+    setTimeout(function () {
+
+        heart.remove();
+
+    }, 9000);
+
+}
+
+
+
+/* Create floating hearts */
+
+setInterval(
+    createHeart,
+    500
+);
+
+
+
+/* ================================= */
+/* RESTART */
+/* ================================= */
+
+function restartWebsite() {
+
+    location.reload();
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
